@@ -7,13 +7,11 @@ A simple web application that generates random quotes using JavaScript, HTML, an
 
 ## Preview
 
-coming up next...
-
-Include a screenshot or GIF showcasing your Quote Generator app.
+https://github.com/minimomo14/Quote-Generator/assets/93943633/2b35b475-ccf7-459e-adb2-61d4a3ba9912
 
 ## Live Demo
 
-Provide a link to the live demo of your app.
+https://minimomo14.github.io/Quote-Generator/
 
 ## Features
 
