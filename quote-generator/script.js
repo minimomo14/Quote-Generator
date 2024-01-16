@@ -4,11 +4,25 @@ const authorText = document.getElementById("author");
 const facebookBtn = document.getElementById("facebook");
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
+const loader = document.getElementById("loader");
 
 let apiQuotes = [];
 
+// show while loading...
+function loading() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+// hide loading when loading completed
+function complete() {
+  quoteContainer.hidden = false;
+  loader.hidden = true;
+}
+
 // create the function to show new quote
 function newQuote() {
+    loading();
   // using Math.floor function
   // To pick a random quote from quote array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
@@ -28,19 +42,27 @@ function newQuote() {
     quoteText.classList.remove("long-quote");
   }
 
+// set quote, hide loader
   quoteText.textContent = quote.text;
+  complete();
 }
 
 // Get Quote from API
 // another option for API  https://zenquotes.io/
+// https://zenquotes.io/api/random
+
 async function getQuotes() {
+  // call loading function here
+  loading();
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
+  
   try {
     const response = await fetch(apiUrl);
     apiQuotes = await response.json();
     newQuote();
   } catch (error) {
     // Catch error here
+    console.log("Oops!")
   }
 }
 
@@ -64,4 +86,5 @@ facebookBtn.addEventListener("click", shareQuote);
 twitterBtn.addEventListener("click", tweetQuote);
 
 // On load
-getQuotes();
+ getQuotes();
+// loading();
