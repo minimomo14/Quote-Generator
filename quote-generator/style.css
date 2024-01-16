@@ -18,3 +18,41 @@ body {
   justify-content: center;
 
 }
+
+.quote-container {
+  width: auto;
+  max-width: 900px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 255,255, 0.8);
+  box-shadow: 0 10px 10px 10px rgba(0 ,0 ,0, 0.2);
+}
+
+.quote-text {
+  font-size: 2.75rem;
+}
+
+.long-quote {
+  font-size: 2rem;
+}
+
+.fa-quote-left {
+  font-size: 4rem;
+}
+
+.quote-author {
+  margin-top: 16px;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/*  Media Query  */
+@media screen and (max-width: 1000px) {
+  .quote-container {
+    margin: 0 auto;
+  }
+  .quote-text {
+    font-size: 2.5rem;
+  }
+}
