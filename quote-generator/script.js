@@ -2,6 +2,7 @@ const quoteContainer = document.getElementById("quote-container");
 const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const facebookBtn = document.getElementById("facebook");
+const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 
 let apiQuotes = [];
@@ -31,6 +32,7 @@ function newQuote() {
 }
 
 // Get Quote from API
+// another option for API  https://zenquotes.io/
 async function getQuotes() {
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
   try {
@@ -42,16 +44,24 @@ async function getQuotes() {
   }
 }
 
+// twitter button
+function tweetQuote() {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}
+  `;
+  window.open(twitterUrl, "_blank");
+}
+
 // facebook share button
 function shareQuote() {
-  const facebookUrl = `https://www.facebook.com/dialog/share?text=${quoteText.textContent} - ${authorText.textContent}
+  const facebookUrl = `https://www.facebook.com/dialog/share&app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer?text=${quoteText.textContent} - ${authorText.textContent}
   `;
   window.open(facebookUrl, "_blank");
 }
 
-// add event listener here
+// add event listeners here
 newQuoteBtn.addEventListener("click", newQuote);
 facebookBtn.addEventListener("click", shareQuote);
+twitterBtn.addEventListener("click", tweetQuote);
 
 // On load
 getQuotes();

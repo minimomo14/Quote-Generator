@@ -79,7 +79,13 @@ button:active{
   color: #316ff6;
 }
 
-.fa-facebook {
+.twitter-button:hover {
+  color: #1DA1F2;
+}
+
+
+.fa-facebook,
+.fa-twitter {
   font-size: 1.5rem;
 }
 
