@@ -22,7 +22,7 @@ function complete() {
 
 // create the function to show new quote
 function newQuote() {
-    loading();
+  loading();
   // using Math.floor function
   // To pick a random quote from quote array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
@@ -42,7 +42,7 @@ function newQuote() {
     quoteText.classList.remove("long-quote");
   }
 
-// set quote, hide loader
+  // set quote, hide loader
   quoteText.textContent = quote.text;
   complete();
 }
@@ -55,21 +55,20 @@ async function getQuotes() {
   // call loading function here
   loading();
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
-  
+
   try {
     const response = await fetch(apiUrl);
     apiQuotes = await response.json();
     newQuote();
   } catch (error) {
     // Catch error here
-    console.log("Oops!")
+    console.log("Oops!");
   }
 }
 
 // twitter button
 function tweetQuote() {
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}
-  `;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
   window.open(twitterUrl, "_blank");
 }
 
@@ -86,5 +85,5 @@ facebookBtn.addEventListener("click", shareQuote);
 twitterBtn.addEventListener("click", tweetQuote);
 
 // On load
- getQuotes();
+getQuotes();
 // loading();
